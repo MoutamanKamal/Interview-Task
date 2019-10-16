@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass":"sass --watch src/sass:dist/css",
+    "sass": "sass --watch src/sass:dist/css",
+    "build": "babel -w src/js -d dist/js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
