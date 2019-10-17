@@ -174,3 +174,38 @@ figure>svg {
     max-width: 100%;
     object-fit: cover;
 }
+
+.list{
+    padding:10%;
+    margin:0;
+    width:100%;
+    height:100%;
+    list-style: none;
+    .list-item{
+        width:60%;
+        display:relative;
+        border-top:1px solid black;
+        .col{
+            display: inline;
+            a{
+                text-decoration: none;
+                h3{
+                    font-size:7rem;
+                    -webkit-text-stroke: 2px black;
+                    color:transparent;
+                    display:inline;
+                    &:hover{
+                        color:black;
+                    }
+                }
+            }
+        }
+        .icon{
+            width:20%;
+            background:red;
+        }
+        .text{
+            width:80%;
+        }
+    }
+}
