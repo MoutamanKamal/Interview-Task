@@ -3,6 +3,8 @@ html,body{
     padding: 0;
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
+    font-family: 'nexa'
 }
 
 .hero{
@@ -25,13 +27,150 @@ figure>svg {
     fill: white;
 }
 
-.menu{
+.menu-button{
+    z-index: 1;
     position: fixed;
     width: 5rem;
     height: 100%;
     background: gray;
     transition: all ease-in-out 0.2s;
     &:hover{
-        background: black;
+        background: #121111;
+        button{
+            color:white;
+            #hamburger-icon{
+                line{
+                    stroke:white;
+                }
+            }
+        }
+        .title{
+            color:white;
+        }
     }
+    button{
+        width:100%;
+        height:100%;
+        background: transparent;
+        border: none;
+        transition: all ease-in-out 0.2s;
+        #hamburger-icon{
+            position: absolute;
+            left: 50%;
+            top:50%;
+            transform: translate(-50%,-50%);
+            width:18%;
+            line{
+                fill: none;
+                stroke: #000;
+                stroke-miterlimit: 10;
+                stroke-width: 4px;
+                transition: all ease-in-out 0.2s;
+
+            }
+        }
+    }
+    .title{
+
+        position: absolute;
+        bottom: 5rem;
+        left: 50%;
+        font-size: 1.2rem;
+        line-height: 1;
+        color: #121111;
+        white-space: nowrap;
+        -webkit-transform: rotate(-90deg) translateY(50%);
+        transform: rotate(-90deg) translateY(50%);
+        -webkit-transform-origin: 0 100%;
+        transform-origin: 0 100%;
+        display: block;
+        transition: all ease-in-out 0.2s;
+
+    }
+}
+.inner-wrapper{
+    position: relative;
+    width:100%;
+    height:100%;
+}
+.close-menu{
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 5rem;
+    height: 100%;
+    background: transparent;
+    border:none;
+    transition: all ease-in-out 0.2s;
+    .hamburger--close{
+        
+        fill:black;
+        path{
+            fill:black;
+        }
+    }
+}
+.menu-plane,.menu{
+    position: fixed;
+    // left:-100vw; Remeber to uncomment this line and delte the two lines below
+    left:0vw;
+    background:white;
+    top:0;
+    z-index:3;
+    width: 90%;
+    height: 100%;
+}
+.menu-plane{
+    display: none;
+
+}
+
+#canvas {
+    /* make the canvas wrapper fit the window */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transform: scale(1.1);
+}
+#menu-canvas {
+    /* make the canvas wrapper fit the window */
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    width: 90%;
+    height: 100vh;
+    z-index:3;
+}
+
+.plane {
+    /* define the size of your plane */
+    width: 100%;
+    // max-width: 1400px;
+    height: 100%;
+    position: relative;
+    margin: 0 auto;
+    transform: scale(1.1);
+}
+
+.plane img {
+    /* hide the img element */
+    display: none;
+}
+
+/*** in case of error show the image ***/
+
+.no-curtains .plane {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.no-curtains .plane img {
+    display: block;
+    max-width: 100%;
+    object-fit: cover;
 }
