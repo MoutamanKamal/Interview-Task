@@ -176,11 +176,11 @@ figure>svg {
 .list{
     padding:10%;
     margin:0;
-    width:100%;
+    width:80%;
     height:100%;
     list-style: none;
     .list-item{
-        width:60%;
+        width:100%;
         display:relative;
         border-top:1px solid black;
         .col{
@@ -204,6 +204,15 @@ figure>svg {
         }
         .text{
             width:80%;
+        }
+        &:hover{
+           .col{
+               a{
+                    h3{
+                        color:black;
+                    }
+                }
+            }
         }
     }
 }
