@@ -1,0 +1,209 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: "nexa";
+}
+
+.hero {
+  width: 100%;
+  height: 100%;
+  background: url("../../images/bg.jpg");
+}
+
+figure {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+figure > svg {
+  position: absolute;
+  top: 65%;
+  left: 75%;
+  width: 50%;
+  height: 50%;
+  transform: translate(-75%, -65%);
+  fill: white;
+}
+
+.menu-button {
+  z-index: 1;
+  position: fixed;
+  width: 5rem;
+  height: 100%;
+  background: gray;
+  transition: all ease-in-out 0.2s;
+}
+.menu-button:hover {
+  background: #121111;
+}
+.menu-button:hover button {
+  color: white;
+}
+.menu-button:hover button #hamburger-icon line {
+  stroke: white;
+}
+.menu-button:hover .title {
+  color: white;
+}
+.menu-button button {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  transition: all ease-in-out 0.2s;
+}
+.menu-button button #hamburger-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 18%;
+}
+.menu-button button #hamburger-icon line {
+  fill: none;
+  stroke: #000;
+  stroke-miterlimit: 10;
+  stroke-width: 4px;
+  transition: all ease-in-out 0.2s;
+}
+.menu-button .title {
+  position: absolute;
+  bottom: 5rem;
+  left: 50%;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: #121111;
+  white-space: nowrap;
+  -webkit-transform: rotate(-90deg) translateY(50%);
+  transform: rotate(-90deg) translateY(50%);
+  -webkit-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  display: block;
+  transition: all ease-in-out 0.2s;
+}
+
+.inner-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.close-menu {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5rem;
+  height: 100%;
+  background: transparent;
+  border: none;
+  transition: all ease-in-out 0.2s;
+}
+.close-menu .hamburger--close {
+  fill: black;
+}
+.close-menu .hamburger--close path {
+  fill: black;
+}
+
+.menu-plane, .menu {
+  position: fixed;
+  left: -100vw;
+  top: 0;
+  z-index: 3;
+  width: 90%;
+  height: 100%;
+}
+
+.menu-plane {
+  display: none;
+}
+
+#canvas {
+  /* make the canvas wrapper fit the window */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  transform: scale(1.1);
+}
+
+#menu-canvas {
+  /* make the canvas wrapper fit the window */
+  position: fixed;
+  top: 0;
+  left: -100vw;
+  width: 90%;
+  height: 100vh;
+  z-index: 3;
+}
+
+.plane {
+  /* define the size of your plane */
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin: 0 auto;
+  transform: scale(1.1);
+}
+
+.plane img {
+  /* hide the img element */
+  display: none;
+}
+
+/*** in case of error show the image ***/
+.no-curtains .plane {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-curtains .plane img {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.list {
+  padding: 10%;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  list-style: none;
+}
+.list .list-item {
+  width: 60%;
+  display: relative;
+  border-top: 1px solid black;
+}
+.list .list-item .col {
+  display: inline;
+}
+.list .list-item .col a {
+  text-decoration: none;
+}
+.list .list-item .col a h3 {
+  font-size: 7rem;
+  -webkit-text-stroke: 2px black;
+  color: transparent;
+  display: inline;
+}
+.list .list-item .col a h3:hover {
+  color: black;
+}
+.list .list-item .icon {
+  width: 20%;
+  background: red;
+}
+.list .list-item .text {
+  width: 80%;
+}
+
+/*# sourceMappingURL=style.css.map */
