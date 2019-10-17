@@ -113,9 +113,7 @@ figure>svg {
 }
 .menu-plane,.menu{
     position: fixed;
-    // left:-100vw; Remeber to uncomment this line and delte the two lines below
-    left:0vw;
-    background:white;
+    left:-100vw;
     top:0;
     z-index:3;
     width: 90%;
