@@ -1,5 +1,28 @@
 window.onload = wave('canvas', '.plane');
 
+function openMenu() {
+  //   TweenMax.to(".menu", 1, { marginLeft: 0 });
+  TweenMax.to("#menu-canvas", 1, {
+	left: 0
+  });
+  TweenMax.to(".menu", 1, {
+	left: 0
+  });
+  wave('menu-canvas', '.menu-plane');
+}
+
+function closeMenu() {
+	TweenMax.to(".menu", 1, {
+		left: "-100vw"
+	});
+	//TweenMax.to(".close-menu", 1, { left: "-100vw" });
+
+	TweenMax.to("#menu-canvas", 1, {
+		left: "-100vw"
+	});
+}
+
+
 function wave(canvas, targetPlane) {
 	console.log('wave');
 
