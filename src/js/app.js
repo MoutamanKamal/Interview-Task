@@ -1,3 +1,5 @@
+window.onload = wave('canvas', '.plane');
+
 function wave(canvas, targetPlane) {
 	console.log('wave');
 
