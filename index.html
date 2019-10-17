@@ -61,6 +61,65 @@
 	</div>
 
 	
+	<!-- vertex shader -->
+	<script id="plane-vs" type="x-shader/x-vertex">
+		#ifdef GL_ES
+		precision mediump float;
+		#endif
 
+		// those are the mandatory attributes that the lib sets
+		attribute vec3 aVertexPosition;
+		attribute vec2 aTextureCoord;
+
+		// those are mandatory uniforms that the lib sets and that contain our model view and projection matrix
+		uniform mat4 uMVMatrix;
+		uniform mat4 uPMatrix;
+
+		// texture matrix uniform
+		uniform mat4 uTextureMatrix0;
+
+		// time uniform
+		uniform float uTime;
+
+		// mouse position uniform
+		uniform vec2 uMousePosition;
+
+		// mouse strength
+		uniform float uMouseStrength;
+
+		// vertex and texture coords 
+		varying vec3 vVertexPosition;
+		varying vec2 vTextureCoord;
+
+		void main() {
+			vec3 vertexPosition = aVertexPosition;
+
+			// get the distance between vertex and the mouse position
+			float distanceFromMouse = distance(uMousePosition, vec2(vertexPosition.x, vertexPosition.y));
+
+			// this will define how close the ripples will be from each other. The bigger the number, the more ripples you'll get
+			float rippleFactor = 6.0;
+
+			// calculate the ripple effect
+			float rippleEffect = cos(rippleFactor * (distanceFromMouse - (uTime / 120.0)));
+
+			// calculate the distortion effect
+			float distortionEffect = rippleEffect * uMouseStrength;
+
+			// apply it to the vertex position
+			vertexPosition +=  distortionEffect / 20.0;
+			gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 1.0);
+
+			// varying variables
+			// thanks to the texture matrix we will be able to calculate accurate texture coords
+			// so that the texture will always fit the plane without being distorted
+			vTextureCoord = (uTextureMatrix0 * vec4(aTextureCoord, 0.0, 1.0)).xy;
+			vVertexPosition = vertexPosition;
+		}
+	</script>
+
+	<script src="src/js/vendor/curtains.min.js"></script>
+	<script src="src/js/vendor/greensock-js/TweenMax.min.js"></script>
+	<script src="src/js/app.js"></script>
 </body>
 </html>
