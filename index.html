@@ -118,6 +118,38 @@
 		}
 	</script>
 
+	<!-- fragment shader -->
+	<script id="plane-fs" type="x-shader/x-fragment">
+		#ifdef GL_ES
+		precision mediump float;
+		#endif
+		
+		// get the varying variables
+		varying vec3 vVertexPosition;
+		varying vec2 vTextureCoord;
+		
+		// the texture sampler
+		uniform sampler2D uSampler0;
+		
+		void main() {
+			// get the texture coords
+			vec2 textureCoords = vTextureCoord;
+		
+			// apply the texture
+			vec4 finalColor = texture2D(uSampler0, textureCoords);
+		
+			// fake shadows based on vertex position along Z axis
+			finalColor.rgb -= clamp(-vVertexPosition.z, 0.0, 1.0) * 0.2;
+		
+			// fake lights based on vertex position along Z axis
+			finalColor.rgb += clamp(vVertexPosition.z, 0.0, 1.0) * 0.2;
+		
+			// handling premultiplied alpha
+			finalColor = vec4(finalColor.rgb * finalColor.a, finalColor.a);
+		
+			gl_FragColor = finalColor;
+		}
+	</script>
 	<script src="src/js/vendor/curtains.min.js"></script>
 	<script src="src/js/vendor/greensock-js/TweenMax.min.js"></script>
 	<script src="src/js/app.js"></script>
